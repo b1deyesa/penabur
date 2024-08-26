@@ -1,0 +1,85 @@
+/*
+| --------------------------------------------
+|   Modal
+| --------------------------------------------
+*/
+    .modal {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba($neutral-7, 50%);
+        .container {
+            position: relative;
+            padding: $spacing-5;
+            border-radius: $border-radius-small;
+            background: $neutral-1;
+            & > .close {
+                all: unset;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                aspect-ratio: 1/1;
+                top: -1.6em;
+                right: -2em;
+                width: 1.5em;
+                cursor: pointer;
+                border-radius: $border-radius-circle;
+                background: $neutral-2;
+            }
+        }
+    }
+/*
+| --------------------------------------------
+|   Input
+| --------------------------------------------
+*/
+    .input {
+        @include input();
+    }
+/*
+| --------------------------------------------
+|   Label
+| --------------------------------------------
+*/
+    .label {
+        @include label();
+    }
+/*
+| --------------------------------------------
+|   Button
+| --------------------------------------------
+*/
+    .button {
+        @include button();
+    }
+/*
+| --------------------------------------------
+|   Typographys
+| --------------------------------------------
+*/
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-family-secondary;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-normal;
+    }
+    p, a, i {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        line-height: $line-height-loose;
+    }
+    b {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-normal;
+    }
+    small {
+        font-family: $font-family-primary;
+        font-size: $font-size-10;
+        line-height: $line-height-loose;
+    }

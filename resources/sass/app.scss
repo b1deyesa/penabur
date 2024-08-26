@@ -1,0 +1,227 @@
+:root {
+    font-size: 16px
+}
+
+@import 'reset';
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+@import 'components';
+
+[x-cloak] { display: none !important; }
+body {
+    @include flex(column, center, center);
+    .screen {
+        @include flex(column, $justify-content: center, $gap: $spacing-8);
+        height: 100vh;
+        width: 100%;
+        max-width: 40em;
+        padding: $spacing-5;
+    }
+}
+
+header {
+    @include flex($align-items: center, $gap: $spacing-4);
+    .banner {
+        height: 4em;
+    }
+    .text {
+        @include flex(column, $gap: $spacing-1);
+        h1 {
+            font-family: $font-family-tertiary;
+            font-size: $font-size-4;
+        }
+        h4 {
+            font-size: $font-size-8;
+            font-weight: $font-weight-regular;
+        }
+    }
+}
+.content {
+    .container {
+        @include flex(column, center, center, $gap: $spacing-7);
+    }
+    section {
+        @include flex($gap: $spacing-3);
+        width: 100%;
+        .button {
+            @include button($type: outline);
+            height: 8em;
+            width: 100%;
+        }
+        &.year {
+            span {
+                width: 100%;
+            }
+        }
+        &.month {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: $spacing-3;
+            .button {
+                height: 5em;
+            }
+        }
+        &.data {
+            @include flex($gap: $spacing-6);
+            width: 100%;
+            .left {
+                @include flex(column, $gap: $spacing-2);
+                width: 18em;
+                .image {
+                    @include flex(column, $gap: $spacing-2);
+                    img {
+                        aspect-ratio: 3/4;
+                        object-fit: cover;
+                        width: 100%;
+                        border-radius: $border-radius-small;
+                    }
+                    .buttons {
+                        @include flex($gap: $spacing-2);
+                        .button {
+                            @include button($type: outline);
+                            font-size: .9em;
+                            width: 50%;
+                            min-height: fit-content;
+                            padding: $spacing-1;
+                        }
+                    }
+                }
+                .drop-file {
+                    height: 17.5em;
+                }
+            }
+            .right {
+                @include flex(column, $gap: $spacing-5);
+                width: 100%;
+                .date {
+                    @include flex($gap: $spacing-4);
+                }
+                > span {
+                    align-self: end;
+                    margin-top: auto;
+                    .button {
+                        @include button();
+                    }
+                }
+            }
+        }
+    }
+    &.result {
+        @include flex(column, $gap: $spacing-7);
+        .certificate {
+            position: relative;
+            font-size: 100%;
+            aspect-ratio: 29.7/21;
+            border: 1px solid $neutral-3;
+            box-shadow: 3px 3px 20px #00000010;
+            .background {
+                position: relative;
+                object-fit: cover;
+                width: 100%;
+                background: #000;
+            }
+            .serial-number {
+                position: absolute;
+                font-size: .73em;
+                font-weight: bold;
+                text-align: center;
+                top: 47%;
+                right: 0;
+                left: 0;
+                color: #5a0707;
+            }
+            .name {
+                position: absolute;
+                font-family: 'Gill Sans', sans-serif;
+                font-style: italic;
+                font-size: 1.03em;
+                font-weight: bold;
+                letter-spacing: -.01em;
+                text-align: center;
+                text-transform: uppercase;
+                bottom: 37.3%;
+                right: 0;
+                left: 0;
+            }
+            .date {
+                position: absolute;
+                font-family: 'Gill Sans', sans-serif;
+                font-size: .65em;
+                font-style: italic;
+                font-weight: normal;
+                text-align: center;
+                bottom: 28%;
+                right: 0;
+                left: 0;
+                color: #0d0779;
+            }
+            .ttd {
+                position: absolute;
+                font-family: 'Gill Sans', sans-serif;
+                font-size: .52em;
+                font-style: italic;
+                font-weight: normal;
+                text-align: center;
+                bottom: 23%;
+                right: -50%;
+                left: 0;
+                color: #0d0779;
+            }
+            .photo {
+                position: absolute;
+                aspect-ratio: 3/4;
+                object-fit: cover;
+                width: 9%;
+                bottom: 8.5%;
+                left: 17.6%;
+                background: #fff;
+            }
+        }
+        .buttons {
+            @include flex(column,$gap: $spacing-3);
+            .button {
+                @include button();
+                width: 100%;
+            }
+            > .button:last-child {
+                @include button($type: outline);
+                width: 100%;
+            }
+            .form {
+                @include flex();
+                .input {
+                    width: 5em;
+                    input {
+                        text-align: center;
+                        &::-webkit-inner-spin-button,
+                        &::-webkit-outer-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.modal-create {
+    .container {
+        @include flex(column, $gap: $spacing-5);
+        width: 22em;
+        h5 {
+            font-size: $font-size-7;
+        }
+        .buttons {
+            @include flex($justify-content: end);
+            margin: $spacing-4 0 0;
+            .button {
+                &:first-child {
+                    @include button($type: outline);
+                    width: 50%;
+                }
+                width: 50%;
+            }
+        }
+    }
+}
